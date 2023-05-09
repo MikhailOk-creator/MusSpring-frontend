@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
-const AudioPlayer = () => {
-  const [audioUrl, setAudioUrl] = useState('http://localhost:8080/download/song/1');
+const AudioPlayer = ({ songId }) => {
+  const [audioUrl, setAudioUrl] = useState(`http://localhost:8080/download/song/${songId}`);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -62,6 +62,10 @@ const AudioPlayer = () => {
         </div>
       </div>
   );
+};
+
+AudioPlayer.defaultProps = {
+    songId: 1
 };
 
 export default AudioPlayer;
