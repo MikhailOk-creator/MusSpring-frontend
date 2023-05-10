@@ -42,14 +42,14 @@ const Album = ({ albumId }) => {
                         />
                         <div className="main-info-data">
                             <h2 className="album-title">{album.title}</h2>
-                            <p className="album-year">{album.releaseYear}</p>
+                            <p className="album-year">{album.releaseYear} {album.genre}</p>
                         </div>
                     </div>
                     <div className="album-details">
                         <div className="album-tracklist">
                             {album.songs.map((track) => (
-                                <div className="songs" key={track.id}>
-                                    <button
+                                <ul className="songs" key={track.id}>
+                                    {/*<button
                                         className="play-button"
                                         onClick={() => handlePlay(track.id)}
                                     >
@@ -58,8 +58,12 @@ const Album = ({ albumId }) => {
                                     <div className="track-details">
                                         <p className="track-name">{track.title}</p>
                                         <p className="track-duration">{track.duration}</p>
-                                    </div>
-                                </div>
+                                    </div>*/}
+
+                                    <li>
+                                        <a>{track.title}</a><span>{track.duration}</span>
+                                    </li>
+                                </ul>
                             ))}
                         </div>
                     </div>
