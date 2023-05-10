@@ -1,0 +1,16 @@
+/* In the "main-info" block (div), the picture and the "main-info-data" block (div) are located side by side.
+When all the text in the "main-info-data" block (div) is directed to the left */
+
+.main-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-info-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

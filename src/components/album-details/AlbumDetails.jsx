@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./albumStyle.css"
 import AudioPlayer from "../player/player";
 
 const Album = ({ albumId }) => {
@@ -31,16 +32,20 @@ const Album = ({ albumId }) => {
         <div className="album-container">
             {album && (
                 <>
-                    <img
-                        className="album-image"
-                        src={`http://localhost:8080/download/album_cover/${album.id}`}
-                        alt={album.name}
-                        width={"200px"}
-                        height={"200px"}
-                    />
+                    <div className="main-info">
+                        <img
+                            className="album-image"
+                            src={`http://localhost:8080/download/album_cover/${album.id}`}
+                            alt={album.name}
+                            width={"200px"}
+                            height={"200px"}
+                        />
+                        <div className="main-info-data">
+                            <h2 className="album-title">{album.title}</h2>
+                            <p className="album-year">{album.releaseYear}</p>
+                        </div>
+                    </div>
                     <div className="album-details">
-                        <h1 className="album-title">{album.title}</h1>
-                        <p className="album-year">{album.releaseYear}</p>
                         <div className="album-tracklist">
                             {album.songs.map((track) => (
                                 <div className="songs" key={track.id}>

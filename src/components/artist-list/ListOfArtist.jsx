@@ -17,21 +17,16 @@ const ListOfArtist = () => {
     return (
         <div>
             <h1>Artists</h1>
-            <ul>
-                {artists.map((artist) => (
-                    <li key={artist.id}>
-                        <h2>{artist.name}</h2>
-                        <ul>
-                            {artist.albums.map((album) => (
-                                <li key={album.id}>
-                                     <Album albumId={album.id} />
-                                    {/* album.title */}
-                                </li>
-                            ))}
-                        </ul>
-                    </li>
-                ))}
-            </ul>
+            {artists.map((artist) => (
+                <a key={artist.id}>
+                    <h2>{artist.name}</h2>
+                    {artist.albums.map((album) => (
+                        <a key={album.id}>
+                             <Album albumId={album.id} />
+                        </a>
+                    ))}
+                </a>
+            ))}
         </div>
     );
 };
