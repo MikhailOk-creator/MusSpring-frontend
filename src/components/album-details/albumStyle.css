@@ -5,6 +5,7 @@ When all the text in the "main-info-data" block (div) is directed to the left */
     width: 600px;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 .main-info {
@@ -39,6 +40,8 @@ When all the text in the "main-info-data" block (div) is directed to the left */
     border-bottom: 1px solid #efefef;
     padding: 10px 0;
     text-align: left;
+    /*Убрать маркеры списка*/
+    list-style-type: none;
 }
 .songs a {
     text-decoration: none;

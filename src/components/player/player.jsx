@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
+import axios from "axios";
 
 const AudioPlayer = ({ songId }) => {
   const [audioUrl, setAudioUrl] = useState(`http://localhost:8080/download/song/${songId}`);
@@ -6,6 +7,21 @@ const AudioPlayer = ({ songId }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef();
+  const [songInfo ,setSongInfo] = useState(null);
+
+  useEffect(() => {
+     const fetchSong = async () => {
+          try {
+              const response = await axios.get(
+                  `http://localhost:8080/song/${songId}`
+              );
+              setSongInfo(response.data);
+          } catch (error) {
+              console.log(error);
+          }
+      };
+      fetchSong();
+  }, [songId]);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -15,7 +31,6 @@ const AudioPlayer = ({ songId }) => {
     }
     setIsPlaying(!isPlaying);
   };
-
   const handleTimeUpdate = () => {
     setCurrentTime(audioRef.current.currentTime);
     setDuration(audioRef.current.duration);
@@ -57,8 +72,11 @@ const AudioPlayer = ({ songId }) => {
               max={duration}
               value={currentTime}
               onChange={handleSeek}
+              style={{width: '40%'}}
           />
           <span>{formatTime(currentTime)}</span> / <span>{formatTime(duration)}</span>
+            <div>{songInfo.artist}</div>
+            <div>{songInfo.title}</div>
         </div>
       </div>
   );

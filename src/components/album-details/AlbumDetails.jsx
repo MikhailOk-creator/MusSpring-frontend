@@ -49,19 +49,16 @@ const Album = ({ albumId }) => {
                         <div className="album-tracklist">
                             {album.songs.map((track) => (
                                 <ul className="songs" key={track.id}>
-                                    {/*<button
-                                        className="play-button"
-                                        onClick={() => handlePlay(track.id)}
-                                    >
-                                        {isPlaying && currentTrack === track.id ? "Pause" : "Play"}
-                                    </button>
-                                    <div className="track-details">
-                                        <p className="track-name">{track.title}</p>
-                                        <p className="track-duration">{track.duration}</p>
-                                    </div>*/}
-
                                     <li>
-                                        <a>{track.title}</a><span>{track.duration}</span>
+                                        {/*<button
+                                            className="play-button"
+                                            onClick={() => handlePlay(track.id)}
+                                        >
+                                            {isPlaying && currentTrack === track.id ? "Pause" : "Play"}
+                                        </button>*/}
+                                        <div className="track-details">
+                                            <a>{track.title}</a><span>{track.duration}</span>
+                                        </div>
                                     </li>
                                 </ul>
                             ))}
