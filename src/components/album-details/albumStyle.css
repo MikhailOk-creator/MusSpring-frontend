@@ -46,6 +46,7 @@ When all the text in the "main-info-data" block (div) is directed to the left */
 .songs a {
     text-decoration: none;
     color: #555;
+    padding-left: 8px;
 }
 .songs li span {
     float: right;

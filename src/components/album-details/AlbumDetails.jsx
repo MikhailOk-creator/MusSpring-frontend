@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./albumStyle.css"
+import PlayButton from "../../imgs/play_button.ico"
 import AudioPlayer from "../player/player";
 
 const Album = ({ albumId }) => {
@@ -50,13 +51,8 @@ const Album = ({ albumId }) => {
                             {album.songs.map((track) => (
                                 <ul className="songs" key={track.id}>
                                     <li>
-                                        {/*<button
-                                            className="play-button"
-                                            onClick={() => handlePlay(track.id)}
-                                        >
-                                            {isPlaying && currentTrack === track.id ? "Pause" : "Play"}
-                                        </button>*/}
                                         <div className="track-details">
+                                            <img src={PlayButton} height="2.5%" width="2.5%"/>
                                             <a>{track.title}</a><span>{track.duration}</span>
                                         </div>
                                     </li>
