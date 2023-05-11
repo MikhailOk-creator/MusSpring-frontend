@@ -1,4 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
+import PlayButton from "../../imgs/play_button.ico";
+import PauseButton from "../../imgs/pause_button.ico";
 import axios from "axios";
 
 const AudioPlayer = ({ songId }) => {
@@ -65,7 +67,14 @@ const AudioPlayer = ({ songId }) => {
             onTimeUpdate={handleTimeUpdate}
         />
         <div>
-          <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
+          {/*<button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>*/}
+            <button
+                onClick={togglePlay}>
+                {isPlaying ?
+                    <img src={PauseButton} alt={`Pause`} width="20px" height="20px"/> :
+                    <img src={PlayButton} alt={`Play`} width="20px" height="20px"/>
+                }
+            </button>
           <input
               type="range"
               min="0"
@@ -75,8 +84,8 @@ const AudioPlayer = ({ songId }) => {
               style={{width: '40%'}}
           />
           <span>{formatTime(currentTime)}</span> / <span>{formatTime(duration)}</span>
-            <div>{songInfo.artist}</div>
-            <div>{songInfo.title}</div>
+            {/*<div>{songInfo.artist}</div>
+            <div>{songInfo.title}</div>*/}
         </div>
       </div>
   );
